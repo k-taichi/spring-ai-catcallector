@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: cat-collector
+  ai:
+    retry:
+      max-attempts: 10
+      backoff:
+        initial-interval: 2000ms
+        multiplier: 5
+        max-interval: 120000ms
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o-mini
+  main:
+    web-application-type: none
+cat-collector:
+  output-dir: "./cats-data"
+  target-urls:
+    - url: "https://example.com/cats1"
+      crawled: false
+    - url: "https://example.com/cats2"
+      crawled: false
